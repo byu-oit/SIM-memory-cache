@@ -1,0 +1,30 @@
+{
+  "name": "sim-memory-cache",
+  "version": "1.0.0",
+  "description": "variable memory cache manager",
+  "main": "index.js",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "directories": {
+    "lib": "lib",
+    "tests": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byu-oit/SIM-memory-cache.git"
+  },
+  "keywords": [
+    "client"
+  ],
+  "author": "Brigham Young University - Office of Information Technology",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/byu-oit/SIM-memory-cache/issues"
+  },
+  "homepage": "https://github.com/byu-oit/SIM-memory-cache#readme"
+}
