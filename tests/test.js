@@ -84,7 +84,7 @@ describe('memory cache', function()
 
     it('setGet3KeyNoExpiration', function()
     {
-        const path = ['url','suburl','levelthree']
+        const path = ['url','suburl','notfound']
         const val = {value: 'levelthree'}
 
         cache.set(path, val.value, val.expires)
@@ -92,5 +92,14 @@ describe('memory cache', function()
         const cacheVal = cache.get(path)
 
         expect(cacheVal).equal(val.value)
+    });
+
+    it('setGetNoExistingValue', function()
+    {
+        const path = ['url','suburl','levelthree']
+
+        const cacheVal = cache.get(path)
+
+        expect(cacheVal).to.be.null
     });
 });

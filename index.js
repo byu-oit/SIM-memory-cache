@@ -68,7 +68,10 @@ module.exports = function ()
                     valuePath = valuePath[key]
                     val = valuePath
                 }
-
+                else
+                {
+                    return null
+                }
             }
             //check if expired
             if (val.expires)
