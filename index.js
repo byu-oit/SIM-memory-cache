@@ -75,7 +75,7 @@ module.exports = function ()
             {
                 if (val.expires < Date.now())
                 {
-                    val = null
+                    val.value = null
                 }
             }
             return val.value;
@@ -89,7 +89,7 @@ module.exports = function ()
             {
                 if (nkeys === 1)
                 {
-                    valuePath[key] = {value: val, expires: expires}
+                    valuePath[key] = {value: val, expires: timeExpires}
                 }
                 else
                 {

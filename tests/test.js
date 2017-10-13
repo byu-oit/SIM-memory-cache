@@ -33,4 +33,64 @@ describe('memory cache', function()
 
         expect(cacheVal).equal(val.value)
     });
+
+    it('setGet2Key', function()
+    {
+        const path = ['url','suburl']
+        const val = {value: 'suburl', expires: '2999-12-31'}
+
+        cache.set(path, val.value, val.expires)
+
+        const cacheVal = cache.get(path)
+
+        expect(cacheVal).equal(val.value)
+    });
+
+    it('setGet3KeyThatisExpired', function()
+    {
+        const path = ['url','suburl','levelthree']
+        const val = {value: 'levelthree', expires: '2000-12-31'}
+
+        cache.set(path, val.value, val.expires)
+
+        const cacheVal = cache.get(path)
+
+        expect(cacheVal).to.be.null
+    });
+
+    it('setGet3KeyThatisExpiredWithTime', function()
+    {
+        const path = ['url','suburl','levelthree']
+        const val = {value: 'levelthree', expires: Date.now() - 10}
+
+        cache.set(path, val.value, val.expires)
+
+        const cacheVal = cache.get(path)
+
+        expect(cacheVal).to.be.null
+    });
+
+    it('setGet3KeyThatisExpiredWithDate', function()
+    {
+        const path = ['url','suburl','levelthree']
+        const val = {value: 'levelthree', expires: new Date('2000-09-01')}
+
+        cache.set(path, val.value, val.expires)
+
+        const cacheVal = cache.get(path)
+
+        expect(cacheVal).to.be.null
+    });
+
+    it('setGet3KeyNoExpiration', function()
+    {
+        const path = ['url','suburl','levelthree']
+        const val = {value: 'levelthree'}
+
+        cache.set(path, val.value, val.expires)
+
+        const cacheVal = cache.get(path)
+
+        expect(cacheVal).equal(val.value)
+    });
 });
